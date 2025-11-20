@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/login.js"></script>
+</head>
+
+<body id="loginBody">
+    <header>
+        <h1>HospitalDB demo</h1>
+    </header>
+    <section id="form-block">
+        <h2>Login</h2>
+        <h5>Don't have an account? <a id="reg-link" href="register.html" class="register-link">Register Now!</a></h5>
+        <br>
+        <form id="login-form">
+
+            <label for="login-ID">User ID:</label>
+            <input type="text" id="login-ID" name="ID" placeholder="ID003" required>
+            <BR>
+            <br><br>
+            <button type="submit" id="submit-login">Login</button>
+        </form>
+    </section>
+</body>
+
+
+</html>

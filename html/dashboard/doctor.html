@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase.js"></script>
+    <script src="../../js/sql.js"></script>
+    <script src="../../js/doctor.js" defer></script>
+</head>
+
+<body>
+<header>
+    <h2>Hello, Dr. <span id="doctor-name"></span></h2>
+</header>
+
+<section id="main">
+    <!-- View Schedule -->
+    <h3>Your Schedule</h3>
+    <button id="load-schedule">Load Schedule</button>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>a_id</th>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="schedule-body"></tbody>
+    </table>
+
+    <br><br>
+<hr>
+    <!-- Manage Appointments -->
+    <h3>Manage Appointments</h3>
+
+    <label>Select Appointment:</label>
+    <select id="appt-select"></select>
+
+    <br><br>
+
+    <button id="delete-appt">Delete Appointment</button>
+
+    <br><br>
+
+    <label>New Time:</label>
+    <input type="time" id="new-time">
+    <button id="update-time">Update Time</button>
+
+    <br><br>
+    <hr>
+<h3>Create Prescription</h3>
+
+<form id="prescription-form">
+
+    <label>Patient ID:</label>
+    <input type="text" id="presc-pid" placeholder="P001" required>
+    <br><br>
+
+    <label>Medication Name:</label>
+    <input type="text" id="presc-med" placeholder="e.g. Ibuprofen" required>
+    <br><br>
+
+    <label>Dosage:</label>
+    <input type="text" id="presc-dose" placeholder="e.g. 400 mg every 8 hours" required>
+    <br><br>
+
+    <button type="submit">Create Prescription</button>
+
+</form>
+
+</section>
+</body>
+</html>

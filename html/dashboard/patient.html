@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase.js"></script>
+    <script src="../../js/patient.js" defer></script>
+    <script src="../../js/sql.js"></script>
+</head>
+
+<body>
+<header>
+    <h1>Hello <span id="patient-name"></span></h1>
+</header>
+    
+<section id="main">
+    <h3>Your Appointments</h3>
+    <button id="load">Load Appointments</button>
+
+    <table border="1" id="appt-table">
+        <thead>
+            <tr>
+                <th>doctor Name</th>
+                <th>date</th>
+                <th>time</th>
+                <th>status</th>
+            </tr>
+        </thead>
+        <tbody id="appt-body"></tbody>
+    </table>
+<br><Br>
+    <hr>
+    <h3>Your Bills</h3>
+<button id="load-bills">Load Bills</button>
+
+<table border="1" id="bills-table">
+    <thead>
+        <tr>
+            <th>Bill ID</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Issue Date</th>
+        </tr>
+    </thead>
+    <tbody id="bills-body"></tbody>
+</table>
+<br><Br>
+    <hr>
+<h3>Your Prescriptions</h3>
+<button id="load-prescriptions">Load Prescriptions</button>
+
+<table border="1" id="presc-table">
+    <thead>
+        <tr>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>Doctor</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody id="presc-body"></tbody>
+</table>
+<br><Br>
+    <hr>
+<h3>Book an Appointment</h3>
+
+<form id="book-form">
+
+    <label>Doctor:</label>
+    <select id="doctor-select" required></select>
+    <br><br>
+
+    <label>Date:</label>
+    <input type="date" id="appt-date" required>
+    <br><br>
+
+    <label>Time:</label>
+    <input type="time" id="appt-time" required>
+    <br><br>
+
+    <button type="submit">Book Appointment</button>
+
+</form>
+
+
+</section>
+</body>
+</html>

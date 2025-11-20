@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase.js"></script>
+    <script src="../../js/sql.js"></script>
+    <script src="../../js/admin.js" defer></script>
+</head>
+
+<body>
+<header>
+    <h2>Admin Dashboard</h2>
+</header>
+
+<section id ="main">
+        <button id="generate-report">Generate Report</button>
+
+    <h3>Manage Users</h3>
+    <input type="text" id="user-id" placeholder="Enter User ID (P001, D004, AD002)">
+    <button id="delete-user">Delete User</button>
+
+    <br><br><hr><br>
+
+    <h3>Manage Bills</h3>
+    <input type="text" id="bill-id" placeholder="Enter Bill ID (B001)">
+    <button id="delete-bill">Delete Bill</button>
+
+    <br><br><hr><br>
+
+    <h3>Create Bill</h3>
+    <form id="create-bill-form">
+
+        <label>Patient ID:</label>
+        <input type="text" id="bill-pid" placeholder="P001" required>
+        <br><br>
+
+        <label>Amount:</label>
+        <input type="number" id="bill-amount" placeholder="300" required>
+        <br><br>
+
+        <button type="submit">Create Bill</button>
+
+    </form>
+    
+    <div id="report" style="display:none;">
+
+    <h2>Hospital Management Report</h2>
+
+    <h3>Patients</h3>
+    <div id="report-patients"></div>
+
+    <h3>Doctors</h3>
+    <div id="report-doctors"></div>
+
+    <h3>Appointments</h3>
+    <div id="report-appointments"></div>
+
+    <h3>Medications</h3>
+    <div id="report-medications"></div>
+
+    <h3>Billing</h3>
+    <div id="report-billing"></div>
+
+</div>
+
+</section>
+</body>
+</html>
