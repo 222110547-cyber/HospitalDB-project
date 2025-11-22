@@ -50,8 +50,10 @@ const Queries = {
 // Get the doctor's full name using d_id
     doctorName: (d_id) =>
         supabase
-
-        //sql here
+        .from('doctors')
+        .select('full_name')
+        .eq('d_id', d_id)
+        .single()
 
         ,
 
@@ -60,16 +62,17 @@ const Queries = {
 // Doctor schedule — appointment list using d_id
     scheduleForDoctor: (d_id) =>
         supabase
-        
-        //sql here
-
+            .from("appointments")
+            .select("a_id, appointment_date, appointment_time, status, patients(full_name)")
+            .eq("d_id", d_id)
         ,
 
     // Delete appointment
     deleteAppointment: (a_id) =>
         supabase
-
-        //sql here
+    .from("appointments")
+    .delete()
+    .eq("a_id",a_id)
 
         ,
 
@@ -77,15 +80,17 @@ const Queries = {
     updateAppointmentTime: (a_id, newTime) =>
         supabase
 
-        //sql here
-            
+       .from("appointments")
+            .update({ appointment_time: newTime })
+            .eq("a_id", a_id)
         ,
 
     // Create a prescription -- Insert prespcription into medications table
     createPrescription: (prescription) =>
         supabase
 
-        //sql here
+        .from("medications")
+        .insert([prescription])
 
         ,
 
@@ -98,7 +103,9 @@ const Queries = {
 deleteUser: (table, column, id) =>
     supabase
 
-        //sql here
+        .from(table)
+        .delete()
+        .eq(column,id)
         
         ,
 
@@ -106,16 +113,17 @@ deleteUser: (table, column, id) =>
 deleteBill: (bill_id) =>
     supabase
 
-        //sql here
-
+        .from("billing")
+        .delete()
+        .eq("bill_id",bill_id)
         ,
 
 // Create a bill -- insert bill into billing table
 createBill: (bill) =>
     supabase
         
-        //sql here
-
+        .from("billing")
+        .insert([bill])
         ,
 
 //get tables for report ----------
@@ -127,31 +135,31 @@ getPatients: () =>
 getDoctors: () =>
     supabase
         
-        //sql here
+        .from("doctors")
+        .select("*")
 
         ,
 
 getAppointments: () =>
     supabase
        
-        //sql here
-
+        .from("appointments")
+        .select("*")
         ,
 
 getMedications: () =>
     supabase
        
-        //sql here
+        .from("medications")
+        .select("*")
 
         ,
+
 
 getBilling: () =>
     supabase
-        
-        //sql here
-
-        ,
-//---------------------------
-
-};
+    .from("billing")
+    .select("*"),
+       
+};    
 //Admin =============================================================

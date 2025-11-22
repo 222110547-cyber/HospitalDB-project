@@ -102,23 +102,28 @@ document.getElementById("generate-report").onclick = async () => {
 
     // Helper to convert rows→HTML table
     const toTable = (data) => {
-        let html = "<table border='1'><tr>";
-        const keys = Object.keys(data[0]);
 
-        // header
-        keys.forEach(k => html += `<th>${k}</th>`);
+    if (!data || data.length === 0) {
+        return "<p>No data found.</p>";
+    }
+
+    let html = "<table border='1'><tr>";
+    const keys = Object.keys(data[0]);
+
+    // header
+    keys.forEach(k => html += `<th>${k}</th>`);
+    html += "</tr>";
+
+    // rows
+    data.forEach(row => {
+        html += "<tr>";
+        keys.forEach(k => html += `<td>${row[k]}</td>`);
         html += "</tr>";
+    });
 
-        // rows
-        data.forEach(row => {
-            html += "<tr>";
-            keys.forEach(k => html += `<td>${row[k]}</td>`);
-            html += "</tr>";
-        });
-
-        html += "</table>";
-        return html;
-    };
+    html += "</table>";
+    return html;
+};
 
     // Fill report sections
     document.getElementById("report-patients").innerHTML = toTable(patients.data);
